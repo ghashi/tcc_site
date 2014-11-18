@@ -94,8 +94,34 @@ textarea {
    ========================================================================== */
 
 
+.project-jumbotron{
+  height: 60vh;
+  overflow: hidden;
+  position: relative;
+  background-image: url("../img/sky.jpg");
+}
+
+.project-jumbotron-image {
+  z-index: 0;
+  width: 100%;
+}
+
+.project-jumbotron-content {
+  position: absolute;
+  text-align: center;
+  top: 60%;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 101;
+}
 
 
+.project-jumbotron-title{
+  font-weight: 700;
+}
+.project-jumbotron-subtitle{
+  font-weight: 600;
+}
 
 
 
