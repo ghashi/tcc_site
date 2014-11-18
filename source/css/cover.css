@@ -116,6 +116,12 @@ body {
   padding: 10px 20px;
   font-weight: bold;
 }
+.cover-img {
+  display:block;
+  height:auto;
+  max-width:70%;
+  margin: auto;
+}
 
 
 /*
