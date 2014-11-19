@@ -94,19 +94,32 @@ textarea {
    ========================================================================== */
 
 
-.project-jumbotron{
-  height: 60vh;
+.solution-jumbotron, .project-jumbotron{
+  height: 70vh;
+  padding: 0;
   overflow: hidden;
   position: relative;
+}
+
+.project-jumbotron{
   background-image: url("../img/sky.jpg");
 }
 
-.project-jumbotron-image {
+.solution-jumbotron{
+  background-image: url("../img/phones3.jpg");
+}
+@media only screen and (min-width: 60em) {
+  .solution-jumbotron{
+    background-image: url("../img/phones1.jpg");
+  }
+}
+
+.project-jumbotron-image, .solution-jumbotron-image {
   z-index: 0;
   width: 100%;
 }
 
-.project-jumbotron-content {
+.solution-jumbotron-content, .project-jumbotron-content {
   position: absolute;
   text-align: center;
   top: 60%;
@@ -115,25 +128,32 @@ textarea {
   z-index: 101;
 }
 
-
 .project-jumbotron-title{
   font-weight: 700;
 }
+
 .project-jumbotron-subtitle{
   font-weight: 600;
 }
 
+h1.solution-jumbotron-title{
+  font-weight: 700;
+  color: #fff;
+}
+
+.solution-jumbotron-subtitle{
+  font-weight: 600;
+  color: #fff;
+}
+
+.long-img{
+  width: 100%;
+}
 
 
-
-
-
-
-
-
-
-
-
+footer{
+  text-align: center;
+}
 
 /* ==========================================================================
    Helper classes

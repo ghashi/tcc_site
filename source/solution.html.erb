@@ -1,0 +1,105 @@
+---
+title: The Solution
+---
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Capacity Sharing</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+              <li><a href="/">Home</a></li>
+              <li><%= link_to 'The Project', '/project.html' %></li>
+              <li class="active"><a href="#">The Solution</a></li>
+            </ul>
+    </div><!--/.navbar-collapse -->
+  </div>
+</nav>
+
+<div class="jumbotron solution-jumbotron">
+  <div class="solution-jumbotron-content">
+    <h1 class="solution-jumbotron-title">Capacity Sharing</h1>
+    <h2 class="solution-jumbotron-subtitle">The Solution</h2>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6 text-justify">
+      <h2 class="text-left">Discrete Authorization without TTP Key Management</h2>
+      <p>
+      After Bob’s admission has taken place at the network operator’s Authentication,
+      Authorization and Accounting Server (AAAS), he may
+      share, as a gateway, his connection with Alice. In order to join the
+      network, Alice generates an ephemeral key s and an access token τ .
+      Thereafter, she signs an access token τ with her N-time signature
+      key and encrypts this token and the signature with the AAAS’ public
+      key, obtaining E(τ, σ(τ )). Alice then sends E(τ, σ(τ )) to Bob, which
+      appends the ID claimed by Alice during the mutual authentication
+      step to the outgoing message and forwards it towards the AAAS.
+      </p>
+      <p>
+      After the reception of (E(τ, σ(τ )),IDGW ) by the AAAS, it decrypts
+      the payload of Alice and performs the token verification process.
+      If the verification is successfully accomplished, the AAAS
+      informs the AP of the acceptance of Alice and provides Alice’s
+      ephemeral key to the AP, which will inform Bob that Alice’s request
+      has been accepted. Otherwise, the AAAS informs Bob that
+      Alice’s request has been denied.
+      </p>
+      <p>
+      The whole authorization process considered in the actual scenario is depicted in the figure 1.
+      </p>
+      <%= image_tag 'authorization_without_TTP.png', class: "long-img" %>
+      <div class="text-center">
+        <small>Figure 1 - Authorization flow</small>
+      </div>
+      <h2 class="text-left">Proof of Concept (PoC)</h2>
+      <p>
+      In the capacity sharing scenario (figure 2) Alice gains access to the Internet through Bob's connection.
+      Since the ISP is able to identify Alice over Bob's connection, it can provide specific QoS to
+      each one of them. It allows the ISP to increasing Bob's connection bandwidth, in order to maintain
+      data throughput to Bob and also convey data to Alice.
+      </p>
+      <%= image_tag 'scenario.png', class: "long-img"%>
+      <div class="text-center">
+        <small>Figure 2 - Capacity Sharing scenario</small>
+      </div>
+      <p>
+      Figure 3 shows the considered scenario in this PoC.
+      A proxy has been put in place instead of the access point,
+      since it is beyond the scope of this PoC to develop a <i>de facto</i> access point.
+      Although both concepts are slightly different, this approach has no impact to our PoC, since both are gatekeepers of
+      the Internet.
+      </p>
+      <%= image_tag 'scenario_poc.png', class: "long-img"%>
+      <div class="text-center">
+        <small>Figure 3 - PoC scenario</small>
+      </div>
+      <p>
+      Alice and Bob from figure 2 are respectively represented as client and gateway in figure 3. For them, we have developped an Android App, which
+      communicates via Bluetooth between them and, in the case of the gateway, through WiFi or GSM with the Proxy. The main use case is to grant the Client
+      limited access to the Internet (1MB) through Bluetooth, after the succeful verification of their access token.
+      </p>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>
+
+  <hr>
+
+  <footer>
+    <small>Capacity Sharing - Escola Politécnica da Universidade de São Paulo</small>
+  </footer>
+</div> <!-- /container -->
