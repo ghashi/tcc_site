@@ -36,26 +36,11 @@ title: The Solution
     <div class="col-md-3">
     </div>
     <div class="col-md-6 text-justify">
-      <h2 class="text-left">Discrete Authorization without TTP Key Management</h2>
-      <p>
-      After Bob’s admission has taken place at the network operator’s Authentication,
-      Authorization and Accounting Server (AAAS), he may
-      share, as a gateway, his connection with Alice. In order to join the
-      network, Alice generates an ephemeral key s and an access token τ .
-      Thereafter, she signs an access token τ with her N-time signature
-      key and encrypts this token and the signature with the AAAS’ public
-      key, obtaining E(τ, σ(τ )). Alice then sends E(τ, σ(τ )) to Bob, which
-      appends the ID claimed by Alice during the mutual authentication
-      step to the outgoing message and forwards it towards the AAAS.
+      <h2 class="text-left">Discrete Authorization for Capacity Sharing</h2>
       </p>
-      <p>
-      After the reception of (E(τ, σ(τ )),IDGW ) by the AAAS, it decrypts
-      the payload of Alice and performs the token verification process.
-      If the verification is successfully accomplished, the AAAS
-      informs the AP of the acceptance of Alice and provides Alice’s
-      ephemeral key to the AP, which will inform Bob that Alice’s request
-      has been accepted. Otherwise, the AAAS informs Bob that
-      Alice’s request has been denied.
+      The network operator has to verify whether the supplicant of
+      a shared connection is indeed allowed to join the network, which is
+      addressed in our solution by means of multi-time digital signature schemes.
       </p>
       <p>
       The whole authorization process considered in the actual scenario is depicted in the figure 1.
@@ -64,6 +49,26 @@ title: The Solution
       <div class="text-center">
         <small>Figure 1 - Authorization flow</small>
       </div>
+      <p>
+      After Bob’s admission has taken place at the network operator’s Authentication,
+      Authorization and Accounting Server (AAAS), he may
+      share, as a gateway, his connection with Alice. In order to join the
+      network, Alice generates an ephemeral key s and an access token τ .
+      Thereafter, she signs an access token τ with her N-time signature
+      key and encrypts this token and the signature with the AAAS’ public
+      key, obtaining E(τ, σ(τ )). Alice then sends E(τ, σ(τ )) to Bob, who
+      appends the ID claimed by Alice during the mutual authentication
+      step to the outgoing message and forwards it towards the AAAS.
+      </p>
+      <p>
+      After the reception of (E(τ, σ(τ )), ID<small>GW</small>) by the AAAS, it decrypts
+      the payload of Alice and performs the token verification process.
+      If the verification is successfully accomplished, the AAAS
+      informs the AP of the acceptance of Alice and provides Alice’s
+      ephemeral key to the AP, which will inform Bob that Alice’s request
+      has been accepted. Otherwise, the AAAS informs Bob that
+      Alice’s request has been denied.
+      </p>
       <h2 class="text-left">Proof of Concept (PoC)</h2>
       <p>
       In the capacity sharing scenario (figure 2) Alice gains access to the Internet through Bob's connection.
@@ -89,7 +94,7 @@ title: The Solution
       <p>
       Alice and Bob from figure 2 are respectively represented as client and gateway in figure 3. For them, we have developped an Android App, which
       communicates via Bluetooth between them and, in the case of the gateway, through WiFi or GSM with the Proxy. The main use case is to grant the Client
-      limited access to the Internet (1MB) through Bluetooth, after the succeful verification of their access token.
+      limited access to the Internet (1MB) through Bluetooth, after the successful verification of their access token.
       </p>
     </div>
     <div class="col-md-3">
