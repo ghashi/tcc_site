@@ -54,14 +54,14 @@ title: The Solution
       Authorization and Accounting Server (AAAS), he may
       share, as a gateway, his connection with Alice. In order to join the
       network, Alice generates an ephemeral key s and an access token τ .
-      Thereafter, she signs an access token τ with her N-time signature
-      key and encrypts this token and the signature with the AAAS’ public
-      key, obtaining E(τ, σ(τ )). Alice then sends E(τ, σ(τ )) to Bob, who
+      Thereafter, she encrypts an access token τ with the AAAS' public key and
+      signs the ciphertext with her N-time signature
+      key, obtaining (E(τ), σ(E(τ))). Alice then sends (E(τ), σ(E(τ))) to Bob, who
       appends the ID claimed by Alice during the mutual authentication
       step to the outgoing message and forwards it towards the AAAS.
       </p>
       <p>
-      After the reception of (E(τ, σ(τ )), ID<small>GW</small>) by the AAAS, it decrypts
+      After the reception of (E(τ), σ(E(τ)), ID<small>GW</small>) by the AAAS, it decrypts
       the payload of Alice and performs the token verification process.
       If the verification is successfully accomplished, the AAAS
       informs the AP of the acceptance of Alice and provides Alice’s
